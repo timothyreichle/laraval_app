@@ -94,16 +94,6 @@
                 </div>
 	    </div>
 
-
-<div>
-    @if(DB::connection()->getDatabaseName())
-        <p>Database: {{ DB::connection()->getDatabaseName() }}</p>
-    @else
-        <p>Not Connected</p>
-    @endif
-</div>
-
-
 	</div>
 
 

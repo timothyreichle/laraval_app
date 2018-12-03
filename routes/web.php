@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -22,4 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'note'], function(){
 	Route::view('', 'note.index');
 	Route::get('/list', 'NoteController@listNotes');
+	Route::POST('/postion', 'NoteController@savePostion');
+	Route::POST('/text', 'NoteController@saveText');
+	Route::POST('/new', 'NoteController@newNote');
+	Route::POST('/delete', 'NoteController@deleteNote');
 });

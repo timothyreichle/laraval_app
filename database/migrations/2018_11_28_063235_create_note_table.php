@@ -19,6 +19,8 @@ class CreateNoteTable extends Migration
 		$table->integer('sortorder');
 		$table->integer('x');
 		$table->integer('y');
+		$table->integer('width');
+		$table->integer('height');
 		$table->longText('text');
 		$table->timestamps();
 		$table->softDeletes();
