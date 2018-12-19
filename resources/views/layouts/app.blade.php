@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>    @yield('title')</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 	
@@ -56,6 +56,14 @@
                 <a class="navbar-brand" href="{{ url('/note') }}">
                     Note Wall
                 </a>
+				
+                <a class="navbar-brand" href="{{ url('/shop') }}">
+                    Shopping
+                </a>
+				
+				
+				
+				
 				
                 <a class="navbar-brand" target="_blank" href="{{ url('https://github.com/timothyreichle/laraval_app') }}">
                     Git Repository

@@ -9,6 +9,10 @@
     <LINK href="{{ asset('css/note/main.css')}}" rel="stylesheet" type="text/css">
 @endsection
 
+@section('title')
+	Note Wall
+@endsection
+
 @section('content')
 <div style="" id="noteContainer" style="position: relative; height:100%;">
 </div>
