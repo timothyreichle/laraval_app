@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;;
 
+use \App\Models\Note;
+
 class NoteController extends Controller
 {
 
@@ -12,7 +14,7 @@ class NoteController extends Controller
 	
 		$input = Input::All();
 		
-		$note = \App\Note::find($input["noteid"]);
+		$note = Note::find($input["noteid"]);
 		
 		$note->text = $input["text"];
 		
@@ -23,14 +25,14 @@ class NoteController extends Controller
 	public function deleteNote(){
 	
 		$input = Input::All();
-		$note = \App\Note::destroy($input["noteid"]);
+		$note = Note::destroy($input["noteid"]);
 		
 	}
 	
 	
 	public function newNote(){
 	
-		$note = new  \App\Note();
+		$note = new  Note();
 		
 		
 		
@@ -44,7 +46,7 @@ class NoteController extends Controller
 	
 		$input = Input::All();
 				
-		$note = \App\Note::find($input["noteid"]);
+		$note = Note::find($input["noteid"]);
 		
 		$note->x = intval($input["left"]);
 		$note->y =  intval($input["top"]);
@@ -57,7 +59,7 @@ class NoteController extends Controller
      
 	public	function listNotes(){
 
-		$notes = \App\Note:: getUserList();
+		$notes = Note:: getUserList();
 
 		$noteOutput = [];
 
