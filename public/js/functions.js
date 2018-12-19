@@ -12,3 +12,10 @@ function FailMessage(msg){
 	$("#messages").append(mesDiv)
 
 }
+
+
+function questionBox(text , confirmFunction){
+	if (confirm(text)){
+		confirmFunction();
+	}
+}

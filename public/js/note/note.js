@@ -64,7 +64,7 @@ function showNotes(data){
 				'<span class="title">' +note.title+'</span>'+
 				'<span class="delete"><img src="/images/buttons/cross.png" >  </div>'+
 			'</div>'+
-			'<Div class="noteContents">'+escapeHtml(note.text).replace("\n", "<br>")+'</div>'
+			'<Div class="noteContents">'+newLineToHtml(escapeHtml(note.text))+'</div>'
 		);
 	
 		noteDiv.css("left",note.x)
@@ -73,11 +73,14 @@ function showNotes(data){
 		noteDiv.css("height",note.height);
 		
 		noteContainer.append(noteDiv);
+		
 		$(noteDiv).draggable({
 			stop: function(){
 				updatePostion($(this))
 			}
-		}).resizable({
+		})
+		
+		$(noteDiv).resizable({
 			stop: function(){
 				updatePostion($(this))
 			}			
@@ -86,40 +89,21 @@ function showNotes(data){
 		noteContent = noteDiv.find('.noteContents')
 				
 		noteDiv.find('.delete').click(function(event) {
-			$.post("/note/delete", {noteid : noteDiv.data('noteid')} , function(data){
-			
-				noteDiv.remove()
-			
-			}).fail(function() {
-			
-				FailMessage("Could Not Delete Note")
+			questionBox("Do you want to delete this note?", function(){
+				$.post("/note/delete", {noteid : noteDiv.data('noteid')} , function(data){
+				
+						noteDiv.remove()
+				
+				}).fail(function() {
+				
+					FailMessage("Could Not Delete Note")
+				});
 			});
 	
 	
 			event.stopPropagation();
 		});
-		
-		titleDiv = noteDiv.find('.noteTitle')
-		
-		titleDiv.click(function(event) {
-		
-			editing = titleDiv.data("editing")
-			if (!editing) {
 			
-				noteContent.data("editing",true)
-			
-				text = noteContent.html()
-				
-				input = $("<input style='width:100%; height:100%' >"+text+"</textarea>")
-			
-			}else{
-			
-			}
-		
-		});
-			
-		
-		
 		
 		noteDiv.click(function(event) {
 		

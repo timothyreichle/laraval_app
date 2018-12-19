@@ -1,16 +1,11 @@
 function newLineToHtml(oldStr){
-
-	
-
-	newStr =  oldStr.replace(/(?:\r\n|\r|\n)/g, '<br>');
-	
-	console.log(oldStr, newStr)
-	
-	return newStr;
+	return  oldStr.replace(/(?:\r\n|\r|\n)/g, '<br>');
 }
 
 function htmlToNewLine(oldStr){
-	return oldStr.replace("/<br>/gi","\n");
+	var regex = /<br\s*[\/]?>/gi;
+
+	return oldStr.replace(regex,"\n");
 }
 
 var entityMap = {

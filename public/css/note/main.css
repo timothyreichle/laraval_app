@@ -1,6 +1,11 @@
+.noteContainer{
+	background-color:lightblue;
+}
+
 .noteDiv{
-	border:black solid 1px;
+	border:gray outset 2px;
 	position:absolute; 	
+	background-color:lightyellow;
 }
 
 .delete{
@@ -18,7 +23,7 @@
 
 .noteTitle{
 	height:30px; 
-	border-bottom: 1px solid black;
+	border-bottom: gray solid 1px;
 	width:100%;
 	position:absolute; 	
 }
