@@ -20,6 +20,13 @@ Auth::routes();
 Route::group( ['middleware' => 'auth' ], function(){
 	Route::get('/home', 'HomeController@index')->name('home');
 
+	
+	Route::Group(['prefix'=>'shop'], function(){
+		Route::view('', 'shop.index');
+		Route::get('products', 'Shop\ProductController@listProducts');
+	
+	});
+	
 	Route::group(['prefix'=>'note'], function(){
 		Route::view('', 'note.index');
 		Route::get('/list', 'NoteController@listNotes');
