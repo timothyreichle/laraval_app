@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body">				
+				
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -65,8 +66,22 @@
                             </div>
                         </div>
                     </form>
+					
+				</div>
+				
+				
+                <div class="card-header">Guest Access:</div>
+				
+                <div class="card-body">	
+					<div>
+						Email: guest@timothyreichle.com <br/>
+						Password: guestguest
+					</div>
+				
                 </div>
-            </div>
+            
+			
+			</div>
         </div>
     </div>
 </div>

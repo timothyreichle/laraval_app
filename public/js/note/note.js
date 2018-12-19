@@ -55,15 +55,18 @@ function showNotes(data){
 		
 		noteDiv = $('<div class="noteDiv" data-noteid="'+note.id+'">');
 		
+		if(!note.title){
+			note.title = "Default Title";
+		}
 		
 		noteDiv.html(
 			'<div class="noteTitle">'+
-				'<div class="delete">X</div>'+
+				'<span class="title">' +note.title+'</span>'+
+				'<span class="delete"><img src="/images/buttons/cross.png" >  </div>'+
 			'</div>'+
-			'<Div class="noteContents">'+note.text+'</div>'
+			'<Div class="noteContents">'+escapeHtml(note.text).replace("\n", "<br>")+'</div>'
 		);
 	
-		noteDiv.css("position","absolute")
 		noteDiv.css("left",note.x)
 		noteDiv.css("top",note.y);
 		noteDiv.css("width",note.width)
@@ -96,6 +99,26 @@ function showNotes(data){
 			event.stopPropagation();
 		});
 		
+		titleDiv = noteDiv.find('.noteTitle')
+		
+		titleDiv.click(function(event) {
+		
+			editing = titleDiv.data("editing")
+			if (!editing) {
+			
+				noteContent.data("editing",true)
+			
+				text = noteContent.html()
+				
+				input = $("<input style='width:100%; height:100%' >"+text+"</textarea>")
+			
+			}else{
+			
+			}
+		
+		});
+			
+		
 		
 		
 		noteDiv.click(function(event) {
@@ -109,7 +132,7 @@ function showNotes(data){
 			
 				text = noteContent.html()
 				
-				input = $("<textarea style='width:100%; height:100%' >"+text+"</textarea>")
+				input = $("<textarea style='width:100%; height:100%' >"+htmlToNewLine(text)+"</textarea>")
 				
 				input.keydown(function(event) {
 					if (event.which == 13 && !event.shiftKey) {
@@ -133,7 +156,7 @@ function showNotes(data){
 							
 						$.post("/note/text", data, function(data){
 						
-							noteContent.html(text)
+							noteContent.html(newLineToHtml(escapeHtml(text)))
 							noteContent.data("editing",false)
 						
 						}).fail(function() {

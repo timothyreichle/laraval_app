@@ -1,0 +1,36 @@
+.noteDiv{
+	border:black solid 1px;
+	position:absolute; 	
+}
+
+.delete{
+	height:30px; 
+	right:0px; 
+	position:absolute; 		
+}
+
+.delete > img{
+	width:25px;
+	height:20px;
+	padding-right:5px;
+}
+
+
+.noteTitle{
+	height:30px; 
+	border-bottom: 1px solid black;
+	width:100%;
+	position:absolute; 	
+}
+
+
+.noteTitle > .title{
+	width: calc(100% - 40px);
+	display: inline;
+}
+
+.noteContents{
+	padding-top: 30px;
+	height:calc(100% - 30px); 
+	width:100%
+}
