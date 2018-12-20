@@ -22,8 +22,7 @@ Route::group( ['middleware' => 'auth' ], function(){
 
 	
 	Route::Group(['prefix'=>'shop'], function(){
-		Route::view('', 'shop.index');
-		Route::get('products', 'Shop\ProductController@listProducts');
+		Route::get('', 'Shop\ProductController@index');
 	
 	});
 	

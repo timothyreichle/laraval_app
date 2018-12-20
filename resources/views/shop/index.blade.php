@@ -15,5 +15,9 @@
 @section('content')
 
 
+	<div id="products">
+		@include('shop.productList')
+	</div>
+
 
 @endsection

@@ -1,0 +1,47 @@
+#products{
+	height:100%
+}
+
+#products > .productContainer {
+	height:calc(100% - 40px);
+	overflow-y:scroll;
+}
+
+#products > .links {
+	height:50px;
+}
+
+
+.product {
+	height:100px;
+	position: relative;
+}
+
+.product > .addButton {
+	position: absolute;
+	bottom: 0px;
+}
+
+
+.product > .title {
+	position: absolute;
+	font-weight:bold;
+	top: 0px;
+}
+
+.product > .description {
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	overflow: hidden;
+}
+
+.productContainer > .product:nth-child(even){
+  background-color: lightgray;
+}
+
+.addCart{
+
+	font-size:8px;
+	
+}
